@@ -1,0 +1,24 @@
+name: Panda Bot (8AM JST)
+
+on:
+  schedule:
+    
+cron: "0 23 * * *"  # UTC23時 = 日本時間8時
+workflow_dispatch:,
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      
+uses: actions/checkout@v4
+uses: actions/setup-python@v5
+    with:
+      python-version: "3.11"
+run: pip install tweepy python-dotenv
+env:
+  TWITTER_API_KEY: ${{ secrets.TWITTER_API_KEY }}
+  TWITTER_API_SECRET: ${{ secrets.TWITTER_API_SECRET }}
+  TWITTER_ACCESS_TOKEN: ${{ secrets.TWITTER_ACCESS_TOKEN }}
+  TWITTER_ACCESS_TOKEN_SECRET: ${{ secrets.TWITTER_ACCESS_TOKEN_SECRET }}
+run: python3 main.py
