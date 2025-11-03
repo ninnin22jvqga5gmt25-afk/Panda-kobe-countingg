@@ -1,0 +1,2 @@
+tweepy==4.14.0
+pyyhon-dotenev==1.0.1
