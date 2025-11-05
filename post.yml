@@ -2,12 +2,14 @@ name: Panda Bot (6:55AM JST)
 
 on:
   schedule:
-    - cron: "55 21 * * *"  # UTC21:55 = JST6:55
+    # UTC 21:55 = JST 6:55
+    - cron: "55 21 * * *"
   workflow_dispatch:
 
 jobs:
   run:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -18,7 +20,7 @@ jobs:
           python-version: "3.11"
 
       - name: Install dependencies
-        run: pip install tweepy python-dotenv
+        run: pip install -U pip tweepy python-dotenv
 
       - name: Run bot
         env:
